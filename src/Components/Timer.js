@@ -2,6 +2,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import PauseButton from "./PauseButton";
 import PlayButton from "./PlayButton";
+import SettingsButton from "./SettingsButton";
 const percentage = 60;
 const red = "#F5605B";
 const green = "#D5D066";
@@ -21,6 +22,9 @@ const Timer = () => {
       <div style={{ marginTop: "2rem" }}>
         <PlayButton />
         <PauseButton />
+      </div>
+      <div style={{ marginTop: "2rem" }}>
+        <SettingsButton />
       </div>
     </div>
   );
