@@ -1,6 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Caveat:wght@400;500;600;700&family=Comfortaa:wght@300;400;500;600;700&family=Fredoka+One&family=Lobster&family=Pacifico&family=Patrick+Hand&display=swap");
+
+/* 
+
+Avocado
+#3BA193 bg
+#D5D066 accent
+
+Lemon
+#659A92
+
+font-family: 'Abril Fatface', cursive;
+font-family: 'Caveat', cursive;
+font-family: 'Comfortaa', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Patrick Hand', cursive;
+ */
+
 body {
-  background-color: #30384b;
+  background-color: #f4b9a0;
   color: #eee;
+  font-family: "Fredoka One", cursive;
+  font-weight: 100;
 }
 
 main {
