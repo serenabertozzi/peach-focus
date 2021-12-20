@@ -58,13 +58,23 @@ const Timer = () => {
     return clearInterval(interval);
   }, [settingsInfo]);
 
-  const percentage = 60;
+  const totalSeconds =
+    mode === "work"
+      ? settingsInfo.workMinutes * 60
+      : settingsInfo.breakMinutes * 600;
+  const percentage = Math.round(secondsLeft / totalSeconds) * 100;
+
+  const minutes = Math.floor(secondsLeft / 60);
+  let seconds = secondsLeft % 60;
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
 
   return (
     <div>
       <CircularProgressbar
         value={percentage}
-        text={`${percentage}%`}
+        text={`${minutes}:${seconds}`}
         styles={buildStyles({
           textColor: "#fff",
           pathColor: red,
