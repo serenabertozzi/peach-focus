@@ -94,18 +94,19 @@ function Timer() {
         }
       />
       <div style={{ margin: "20px", marginBottom: "40px" }}>
-        <WorkButton
-          style={{ margin: "5px" }}
-          onClick={() => {
-            switchMode();
-          }}
-        />
-        <BreakButton
-          style={{ margin: "5px" }}
-          onClick={() => {
-            switchMode();
-          }}
-        />
+        {mode === "work" ? (
+          <BreakButton
+            onClick={() => {
+              switchMode();
+            }}
+          />
+        ) : (
+          <WorkButton
+            onClick={() => {
+              switchMode();
+            }}
+          />
+        )}
       </div>
       <CircularProgressbar
         value={percentage}
