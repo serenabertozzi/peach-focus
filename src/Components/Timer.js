@@ -27,22 +27,21 @@ function Timer() {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
   }
-  function switchMode() {
-    const nextMode = modeRef.current === "work" ? "break" : "work";
-    const nextSeconds =
-      (nextMode === "work"
-        ? settingsInfo.workMinutes
-        : settingsInfo.breakMinutes) * 60;
-
-    setMode(nextMode);
-    modeRef.current = nextMode;
-
-    setSecondsLeft(nextSeconds);
-    secondsLeftRef.current = nextSeconds;
-  }
 
   useEffect(() => {
-    switchMode();
+    function switchMode() {
+      const nextMode = modeRef.current === "work" ? "break" : "work";
+      const nextSeconds =
+        (nextMode === "work"
+          ? settingsInfo.workMinutes
+          : settingsInfo.breakMinutes) * 60;
+
+      setMode(nextMode);
+      modeRef.current = nextMode;
+
+      setSecondsLeft(nextSeconds);
+      secondsLeftRef.current = nextSeconds;
+    }
 
     secondsLeftRef.current = settingsInfo.workMinutes * 60;
     setSecondsLeft(secondsLeftRef.current);
@@ -71,6 +70,20 @@ function Timer() {
   let seconds = secondsLeft % 60;
   if (seconds < 10) seconds = "0" + seconds;
 
+  function switchMode() {
+    const nextMode = modeRef.current === "work" ? "break" : "work";
+    const nextSeconds =
+      (nextMode === "work"
+        ? settingsInfo.workMinutes
+        : settingsInfo.breakMinutes) * 60;
+
+    setMode(nextMode);
+    modeRef.current = nextMode;
+
+    setSecondsLeft(nextSeconds);
+    secondsLeftRef.current = nextSeconds;
+  }
+
   return (
     <div>
       <Helmet
@@ -80,7 +93,7 @@ function Timer() {
             : { style: "background-color : #3ba193;" }
         }
       />
-      <div style={{ margin: "20px" }}>
+      <div style={{ margin: "20px", marginBottom: "40px" }}>
         <WorkButton
           style={{ margin: "5px" }}
           onClick={() => {
