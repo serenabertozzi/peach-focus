@@ -2,10 +2,12 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import PauseButton from "./PauseButton";
 import PlayButton from "./PlayButton";
+import WorkButton from "./WorkButton";
 import SettingsButton from "./SettingsButton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
 import Helmet from "react-helmet";
+import BreakButton from "./BreakButton";
 
 const red = "#F5605B";
 const green = "#D5D066";
@@ -25,21 +27,22 @@ function Timer() {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
   }
+  function switchMode() {
+    const nextMode = modeRef.current === "work" ? "break" : "work";
+    const nextSeconds =
+      (nextMode === "work"
+        ? settingsInfo.workMinutes
+        : settingsInfo.breakMinutes) * 60;
+
+    setMode(nextMode);
+    modeRef.current = nextMode;
+
+    setSecondsLeft(nextSeconds);
+    secondsLeftRef.current = nextSeconds;
+  }
 
   useEffect(() => {
-    function switchMode() {
-      const nextMode = modeRef.current === "work" ? "break" : "work";
-      const nextSeconds =
-        (nextMode === "work"
-          ? settingsInfo.workMinutes
-          : settingsInfo.breakMinutes) * 60;
-
-      setMode(nextMode);
-      modeRef.current = nextMode;
-
-      setSecondsLeft(nextSeconds);
-      secondsLeftRef.current = nextSeconds;
-    }
+    switchMode();
 
     secondsLeftRef.current = settingsInfo.workMinutes * 60;
     setSecondsLeft(secondsLeftRef.current);
@@ -77,6 +80,20 @@ function Timer() {
             : { style: "background-color : #3ba193;" }
         }
       />
+      <div style={{ margin: "20px" }}>
+        <WorkButton
+          style={{ margin: "5px" }}
+          onClick={() => {
+            switchMode();
+          }}
+        />
+        <BreakButton
+          style={{ margin: "5px" }}
+          onClick={() => {
+            switchMode();
+          }}
+        />
+      </div>
       <CircularProgressbar
         value={percentage}
         text={minutes + ":" + seconds}
