@@ -6,7 +6,7 @@ import WorkButton from "./WorkButton";
 import SettingsButton from "./SettingsButton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
-import Helmet from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import BreakButton from "./BreakButton";
 
 const red = "#F5605B";
@@ -86,13 +86,15 @@ function Timer() {
 
   return (
     <div>
-      <Helmet
-        bodyAttributes={
-          mode === "work"
-            ? { style: "background-color : #f4b9a0;" }
-            : { style: "background-color : #3ba193;" }
-        }
-      />
+      <HelmetProvider>
+        <Helmet
+          bodyAttributes={
+            mode === "work"
+              ? { style: "background-color : #f4b9a0;" }
+              : { style: "background-color : #3ba193;" }
+          }
+        />
+      </HelmetProvider>
       <div style={{ margin: "20px", marginBottom: "40px" }}>
         {mode === "work" ? (
           <BreakButton

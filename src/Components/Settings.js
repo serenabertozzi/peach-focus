@@ -3,13 +3,15 @@ import "../Slider.css";
 import SettingsContext from "./SettingsContext";
 import { useContext } from "react";
 import BackButton from "./BackButton";
-import Helmet from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const Settings = () => {
   const settingsInfo = useContext(SettingsContext);
   return (
     <>
-      <Helmet bodyAttributes={{ style: "background-color : #F4CF7B;" }} />
+      <HelmetProvider>
+        <Helmet bodyAttributes={{ style: "background-color : #F4CF7B;" }} />
+      </HelmetProvider>
       <div style={{ textAlign: "left" }}>
         <label>work: {settingsInfo.workMinutes}:00</label>
         <ReactSlider
