@@ -15,4 +15,4 @@ I use the pomodoro timer all the time, so I decided to create my own in React.
 
 # Live version:
 
-- [🍑 Peach Focus](https://peach-focus.herokuapp.com/)
+- [🍑 Peach Focus](https://serenabertozzi.github.io/peach-focus/)
