@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/peach-focus/static/css/main.904dd7ff.css",
+    "main.js": "/peach-focus/static/js/main.fd4e90dd.js",
+    "static/js/787.ebf24889.chunk.js": "/peach-focus/static/js/787.ebf24889.chunk.js",
+    "index.html": "/peach-focus/index.html",
+    "main.904dd7ff.css.map": "/peach-focus/static/css/main.904dd7ff.css.map",
+    "main.fd4e90dd.js.map": "/peach-focus/static/js/main.fd4e90dd.js.map",
+    "787.ebf24889.chunk.js.map": "/peach-focus/static/js/787.ebf24889.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.904dd7ff.css",
+    "static/js/main.fd4e90dd.js"
+  ]
+}
